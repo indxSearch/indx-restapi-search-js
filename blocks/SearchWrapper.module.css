@@ -1,0 +1,95 @@
+.frame {
+    width: 100%;
+    max-width: 896px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    break-inside: avoid;
+    display: block;
+    padding-top: 40px;
+}
+
+.frame p {
+    margin-top: 20px;
+    color: #6a6a6a;
+    font-size: 14px;
+}
+
+/* ANIMATION */
+.pulse {
+    width: 30%;
+    float: left;
+    padding-left: 16px;
+    margin-bottom: 30px;
+    font-size: 14px;
+    color: #6a6a6a;
+}
+.ringContainer {
+    position: relative;
+}
+
+.circle {
+    width: 10px;
+    height: 10px;
+    background-color: #0000ff;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    left: -17px;
+}
+
+.ringring {
+    border: 3px solid #0000ff;
+    border-radius: 30px; /* use non-prefixed property */
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    left: -25px;
+    top: -5px;
+    animation-name: pulsate;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite;
+    opacity: 0.0;
+}
+
+@keyframes pulsate {
+    0% {
+        transform: scale(0.1, 0.1); /* use non-prefixed property */
+        opacity: 0.0;
+    }
+
+    25% {
+        opacity: 1.0;
+    }
+
+    50%, 100% {
+        transform: scale(0.8, 0.8); /* use non-prefixed property */
+        opacity: 0.0;
+    }
+}
+
+@media (max-width: 936px) { /* Custom breakpoint for snapping to edge */
+    .frame {
+        max-width: 936px;
+        /* margin-top: 80px; */
+    }
+    .frame p {
+        margin-left: 40px;
+        max-width: calc(100% - 80px);
+    }
+    .pulse {
+        margin-left: 40px;
+    }
+}
+
+@media (max-width: 768px) {
+    .frame {
+        /* margin-top: 100px; */
+    }
+}
+
+@media (max-width: 450px) {
+    .frame {
+        /* margin-top: 60px; */
+    }
+}
